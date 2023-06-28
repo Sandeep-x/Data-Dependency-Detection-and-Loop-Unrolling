@@ -13,13 +13,20 @@ Keep the code file and the input text file in the same directory. Run the c++ co
 <br>
 
 ## Output
-True data dependecny (RAW) among the instructions is displayed on the console. Example shown on below figure.
+True data dependecny (RAW) among the instructions is displayed on the console. Example shown on below figure.<br>
+
 ![image](https://github.com/Sandeep-x/Data-Dependency-Detection-and-Loop-Unrolling/assets/18510244/ba4649f1-fd95-4e39-a082-e8935fd136a4)
 
 This program also generates 4 output code files with optimized code using loop unrolling and code schedulling. Code scheduling is an optimization technique used to rearrange the order of instructions in a program to improve performance. The objective of code scheduling is to minimize stalls and maximize the utilization of available resources. Loop unrolling is an optimization technique used to improve the performance of loops in code.
 
-Generated output files are:
+### Generated output files:
 
 <b> Unscheduled File : </b> This file includes the original instructions from the input file, along with stall information indicating the presence of delays caused by data dependencies between instructions.
-<br>
+<br><br>
 <b> Scheduled File : </b> This file represents an optimized version of the code achieved through code scheduling strategies. This optimization approach effectively reduces the number of stalls compared to an unscheduled strategy. The scheduling process utilizes dependency information to intelligently order instructions, minimizing delays caused by data dependencies.
+<br><br>
+<b> Unrolled_Unscheduled File : </b> 
+This file contains an optimized version of loop-unrolled instructions that have been enhanced using the loop unrolling technique. The primary objective of this optimization is to improve the performance of the loop by reducing the overhead associated with loop control mechanisms. By unrolling the loop, the code achieves better utilization of hardware resources and potentially enhances the overall efficiency and execution speed of the loop.
+<br><br>
+<b> Unrolled_Scheduled File : </b>
+This file demonstrates optimization through a combination of loop unrolling and code scheduling strategies. This optimization approach significantly reduces the number of clock cycles required to execute the entire program, resulting in improved efficiency. Moreover, the loop execution is specifically enhanced, allowing for better utilization of hardware resources and further performance gains.
