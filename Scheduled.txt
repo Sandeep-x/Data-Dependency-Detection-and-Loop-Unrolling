@@ -1,0 +1,14 @@
+L.D F0,0(R1)
+stall
+ADD.D F4,F0,F2
+stall
+stall
+S.D F4,0(R1)
+L.D F0,0(R1)
+L.D F4,0(R3)
+stall
+ADD.D F6,F4,F0
+ADD.I R1,R1,#-8
+ADD.I R3,R3,#-8
+S.D F6,8(R1)
+BNE R1,R2,LOOP

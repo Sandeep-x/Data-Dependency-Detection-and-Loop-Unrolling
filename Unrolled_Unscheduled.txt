@@ -1,0 +1,55 @@
+L.D F0,0(R1)
+stall
+ADD.D F4,F0,F2
+stall
+stall
+S.D F4,0(R1)
+L.D F0,0(R1)
+L.D F4,0(R3)
+stall
+ADD.D F6,F4,F0
+stall
+stall
+S.D F6,0(R1)
+L.D F8,-8(R1)
+stall
+ADD.D F12,F8,F10
+stall
+stall
+S.D F12,-8(R1)
+L.D F8,-8(R1)
+L.D F12,-8(R3)
+stall
+ADD.D F14,F12,F8
+stall
+stall
+S.D F14,-8(R1)
+L.D F16,-16(R1)
+stall
+ADD.D F20,F16,F18
+stall
+stall
+S.D F20,-16(R1)
+L.D F16,-16(R1)
+L.D F20,-16(R3)
+stall
+ADD.D F22,F20,F16
+stall
+stall
+S.D F22,-16(R1)
+L.D F24,-24(R1)
+stall
+ADD.D F28,F24,F26
+stall
+stall
+S.D F28,-24(R1)
+L.D F24,-24(R1)
+L.D F28,-24(R3)
+stall
+ADD.D F30,F28,F24
+stall
+stall
+S.D F30,-24(R1)
+ADD.I R1,R1,#-32
+ADD.I R3,R3,#-32
+BNE R1,R2,LOOP
