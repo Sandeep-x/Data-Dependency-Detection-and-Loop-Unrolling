@@ -1,0 +1,30 @@
+Instruction Formats
+MIPS has a floating point coprocessor that operates on single precision (32-bit) and  double precision (64-bit) floating point numbers. This coprocessor has its own registers, which are numbered F0-F31. Because these registers are only 32-bits wide, two of them are required to hold doubles (64-bits). To simplify matters, floating point operations only use even-numbered registers--including the instructions that operate on single floats (32-bits).
+Assume a simplified MIPS processor with the following floating point instructions:
+add.d  FRdest, FRsrc1, FRsrc2 		Floating Point Addition Double
+add.s  FRdest, FRsrc1, FRsrc2 		Floating Point Addition Single
+l.d  FRdest, address 			Load Floating Point Double
+l.s  FRdest, address 			Load Floating Point Single
+s.d  FRsrc, address 			Store Floating Point Double
+s.s  FRsrc, address 			Store Floating Point Single
+Assume the following integer instructions are available:
+add.u  IRdest, IRsrc1, IRsrc2 		Integer Addition (32-bits)
+add.i  IRdest, IRsrc1, Immediate 	Integer Addition with Immediate (16-bits)
+sub.u  IRdest, IRsrc1, IRsrc2 		Integer Subtraction (32-bits)
+sub.i  IRdest, IRsrc1, Immediate 		Integer Subtraction with Immediate (16-bits)
+bne  IRsrc1, IRsrc2, Loop 		branch to Loop if IRsrc1!= IRsrc2
+beqz  IRsrc1, Loop 			branch to Loop if IRsrc1= 0
+lw  IRdest, address 			Load Integer Word
+sw  IRsrc, address 			Store Integer Word
+mv  IRdest, IRsrc 			Integer data movement
+or  IRdest, IRsrc1, IRsrc2 		Integer OR operation (32-bits)
+
+The addresses mentioned in the floating point and integer instructions are denoted 
+using X(IRsrc) format, where X is an integer (16-bits). Assume the RISC pipeline has two 
+forwarding paths: (i) ALU to Decode Unit and (ii) Memory to Decode Unit. In (i) the 
+result obtained after the ALU can be used in the Decode stage of the immediate next 
+instruction with only one stall and in (ii) the value obtained from the memory can be 
+used in the Decode stage of the immediate next instruction with two stalls. 
+Additionally, the FP unit has the following delays: (i) FP ALU op to Another FP ALU op 
+needs 3 stalls (ii) FP ALU op to Store double needs 2 stalls (iii) Load double to FP ALU 
+op needs 1 stall (iv) Load double to Store double has 0 stall.
